@@ -1,0 +1,35 @@
+{
+  "name": "obscenily",
+  "version": "1.0.0",
+  "description": "Reusable multilingual offensive language detector combining obscenity and @2toad/profanity",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "size:browser": "tsup src/index.ts --format esm --platform browser --minify --out-dir dist/browser --clean && node ./scripts/browser-size.mjs",
+    "bench": "node ./scripts/benchmark.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@2toad/profanity": "^3.3.0",
+    "obscenity": "^0.4.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}
